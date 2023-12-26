@@ -1,0 +1,7 @@
+In Socket.IO, rooms are a way to group sockets (clients) into named channels, allowing you to broadcast messages selectively to specific groups of clients.
+
+Use cases -> 
+1) Joining and Leaving rooms
+    socket.join('roomName);
+    socket.leave('roomName');
+2) Broadcasting to a specific room

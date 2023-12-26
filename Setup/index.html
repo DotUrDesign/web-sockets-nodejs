@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello world</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" integrity="sha512-VJ6+sp2E5rFQk05caiXXzQd1wBABpjEj1r5kMiLmGAAgwPItw1YpqsCCBtq8Yr1x6C49/mTpRdXtq8O2RcZhlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <p>Hello world</p>
+    <script>
+        var socket = io();
+        socket.on('message', function(data){
+            document.body.innerHTML = data;
+        })
+
+        // 1. Custom event created on server side and catch on client side.
+        socket.on("server-custom-event", function(obj){
+            document.body.innerHTML = obj.name + "    " + obj.batch + "   " + obj.college;
+        })
+
+        setTimeout(function() {
+            // 2. Custom event created on client side and catch on server side.
+            socket.emit("client-custom-event", {
+                name : "Nitin",
+                batch : "2021-25",
+                college : "IIIT Gwalior"
+            })
+        }, 1000)
+    </script>
+</body>
+</html>

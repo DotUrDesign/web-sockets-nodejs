@@ -1,0 +1,4 @@
+CASES TO BE HANDLED -
+
+1. Custom event created on server side and catch on client side.
+2. Custom event created on client side and catch on server side.
