@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
-const http = require('http').Server(app);
+const http = require('http').Server(app);   // This line creates an HTTP server instance and associates it with your Express app. It essentially wraps your Express app into an HTTP server. This is necessary because Socket.IO needs a server to attach itself to for handling WebSocket connections.
 
 var path = require('path');
 
-var io = require('socket.io')(http);
+var io = require('socket.io')(http);    // This line initializes a new instance of Socket.IO and binds it to the previously created HTTP server (http). By doing this, Socket.IO can use the same server that Express uses to serve HTTP requests, enabling it to handle WebSocket connections over the same port.
 
 app.get('/', function(req, res) {
     
